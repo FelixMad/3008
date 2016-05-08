@@ -1,0 +1,10 @@
+#control{position: relative;width: 290px;margin: 20px auto 0 auto;}
+#control #control-event{margin-top: 2px;position: absolute;top: 0;left: 0;right: 0;z-index: 3;cursor: pointer;width:100%;background:red;height:32px;display:table;width: 100%;}
+#control .group{padding-top: 34px;overflow: hidden;position: relative;box-sizing: border-box;height: 32px;z-index: 2;transition-property: height;transition-duration: 200ms;transition-timing-function: ease-out;display:none}
+#control #control-event:hover + .group{height: 140px;}
+#control .group ul{list-style:none;margin:0;padding:0}
+#control .group input{display:none}
+#control .group label{background-color:blue;line-height:32px;padding-left:10px;border-radius:5px;color:#fff;margin: 2px 0 0 0;cursor:pointer;display:block;height: 32px;}
+#control .group input:checked + label{position:absolute;top:0;left: 0;right:0;}
+#control .group input:checked + label:before{content:"\e252";margin-right:10px;font-family: 'Glyphicons Halflings';display: inline-block;}
+#control #control-event:hover + .group input:checked + label:before{content:"\e250";}
