@@ -1,34 +1,33 @@
 'use strict';
-var $active = "active";
-var $control_event = document.getElementById("control-event");
-$control_event.addEventListener("click",touch,false);
 
-function touch() {
-    var $className = this.className;
-    var $arrayClassName = $className.split(' ');
+var $element = document.getElementById("control-event");
 
-    if($test($className,$active)){
-        $arrayClassName = $removeClass($arrayClassName,$active);
-    }else{
-        $arrayClassName.push($active);
-    }
-    this.className = $arrayClassName.toString().replace(",", " ");
+$element.addEventListener("click", toogleActiveClass, false); 
+
+function toogleActiveClass() {
+    var value = "active";
+    this.className = toogleTest(this.className.split(' '),value).toString().replace(",", " ");
 }
 
-function $test(data,value){
-    var $array = data.split(' ');
-    for(var i = 0; i < $array.length; i++){
-        if($array[i] == value){
-           return true 
-        }
+function toogleTest(array,value){
+  if(testValue(array,value)){
+    array = removeValue(array,value)
+  }else{
+    array.push(value)
+  }
+  return array
+}
+
+function testValue(array,value){
+    for(var i = 0; i < array.length; i++){
+        if(array[i] === value) return true
     }
     return false
 }
 
-function $removeClass($array,value){
-    for(var i = 0; i < $array.length; i++){
-        if($array[i] == value){
-            return $array = $array.splice(i, 1);
-        }
-    }
+function removeValue(array,value){
+  for(var i = 0; i < array.length; i++){
+      if(array[i] === value) array.splice(i, 1)
+  }
+  return array
 }
